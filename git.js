@@ -6,7 +6,9 @@ const Git = {
   },
 
   pull (cwd, remote, branch, opts, cb) {
-    execFile('git', ['pull', remote, branch], cwd, opts, (err) => cb(err))
+    var args = ['pull', remote, branch]
+    if (opts.tags) args.push('--tags')
+    execFile('git', args, cwd, opts, (err) => cb(err))
   },
 
   clone (cwd, repo, opts, cb) {

@@ -3,6 +3,7 @@ const Fs = require('fs')
 const mkdirp = require('mkdirp')
 const Async = require('async')
 const parse = require('github-url')
+const xtend = require('xtend')
 const Git = require('./git')
 
 module.exports = function release (repo, tag, opts, cb) {
@@ -29,7 +30,8 @@ module.exports = function release (repo, tag, opts, cb) {
       if (exists) {
         Git.checkout(repoDir, opts.branch, opts, (err) => {
           if (err) return cb(err)
-          Git.pull(repoDir, 'origin', opts.branch, opts, cb)
+          var pullOpts = xtend(opts, {tags: true}) // Pull the tags also
+          Git.pull(repoDir, 'origin', opts.branch, pullOpts, cb)
         })
       } else {
         Git.clone(userDir, repo, opts, cb)
