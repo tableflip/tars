@@ -31,6 +31,7 @@ TABLEFLIP Automated Release System.
     * Payload URL: `http://tars.tableflip.io:7777/webhook`
     * Content type: `application/json`
     * Secret: **Retrieve from secrets.yaml for tars-infrastructure project**
+    * Event: **Create** (Branch or tag created)
 
 ## Programmatic usage
 
