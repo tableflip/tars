@@ -32,7 +32,7 @@ module.exports = (opts, cb) => {
 
     console.log(`Releasing ${name}`)
 
-    release(repo.ssh_url, tag, opts, (err) => {
+    release(repo.ssh_url, tag, opts.release, (err) => {
       if (err) return console.error(`Failed to release ${name}`, err)
       console.log(`Successfully released ${name}`)
     })

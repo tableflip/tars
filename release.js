@@ -13,6 +13,7 @@ module.exports = function release (repo, tag, opts, cb) {
 
   opts = opts || {}
   opts.dir = opts.dir || Path.join(process.cwd(), 'release')
+  opts.branch = opts.branch || 'master'
 
   var urlInfo = parse(repo)
   var userDir = Path.join(opts.dir, urlInfo.user)
@@ -26,9 +27,9 @@ module.exports = function release (repo, tag, opts, cb) {
     // Clone or pull the repo
     (exists, cb) => {
       if (exists) {
-        Git.checkout(repoDir, 'master', opts, (err) => {
+        Git.checkout(repoDir, opts.branch, opts, (err) => {
           if (err) return cb(err)
-          Git.pull(repoDir, 'origin', 'master', opts, cb)
+          Git.pull(repoDir, 'origin', opts.branch, opts, cb)
         })
       } else {
         Git.clone(userDir, repo, opts, cb)
