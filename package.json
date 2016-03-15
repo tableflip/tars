@@ -1,0 +1,35 @@
+{
+  "name": "tars",
+  "version": "0.0.0",
+  "private": true,
+  "description": "TABLEFLIP Automated Release System",
+  "main": "release.js",
+  "scripts": {
+    "test": "standard && tape test/*.js"
+  },
+  "author": "TABLEFLIP",
+  "devDependencies": {
+    "standard": "^6.0.8",
+    "tape": "^4.5.1"
+  },
+  "dependencies": {
+    "async": "^1.5.2",
+    "github-url": "^1.2.0",
+    "github-webhook-handler": "^0.5.0",
+    "mkdirp": "^0.5.1"
+  },
+  "bin": {
+    "tars": "server.js"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tableflip/tars.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tableflip/tars/issues"
+  },
+  "homepage": "https://github.com/tableflip/tars#readme"
+}
