@@ -43,7 +43,7 @@ var repo = 'git@github.com:tableflip/tableflip-www.git'
 var tag = 'v1.0.1'
 var opts = {stdout: process.stdout, stderr: process.stderr}
 
-release(release, tag, opts, (err, info) => {
+release(repo, tag, opts, (err, info) => {
   console.log(`Released in ${info.dir}`)
 })
 ```
