@@ -37,11 +37,11 @@ TABLEFLIP Automated Release System.
 
 **release.js**
 ```js
-var release = require('./release')
+const release = require('./release')
 
-var repo = 'git@github.com:tableflip/tableflip-www.git'
-var tag = 'v1.0.1'
-var opts = {stdout: process.stdout, stderr: process.stderr}
+const repo = 'git@github.com:tableflip/tableflip-www.git'
+const tag = 'v1.0.1'
+const opts = {stdout: process.stdout, stderr: process.stderr}
 
 release(repo, tag, opts, (err, info) => {
   console.log(`Released in ${info.dir}`)
